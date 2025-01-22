@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -10,13 +8,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     port: 3306,
     username: 'root',
     password: 'root',
-    database: '',
-    entities: [],
+    database: '', // Cadastrar o nome do BD
+    entities: [], // Cadastrar as Classes Entities, para que o 
+    // TypeORM possa gerar as tabelas correspondentes no BD
     synchronize: true,
     logging: true
   }),
+  // Inserir nome da classe module de cada entidade (ex.: PostagemModule)
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
